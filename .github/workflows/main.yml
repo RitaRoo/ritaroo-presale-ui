@@ -1,10 +1,13 @@
-name: CI Check
+name: Status Check
+
 on: [push, pull_request]
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      - name: Run Basic Check
+
+      - name: Run Basic Validation
         run: echo "Status Check Passed!"
