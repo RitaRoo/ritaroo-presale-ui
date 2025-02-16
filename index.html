@@ -149,9 +149,23 @@
             }
         }
         async function checkWalletConnection() {
-            if (window.solana && window.solana.isPhantom) {
+            if (window.solana) {
                 try {
-                    const response = await window.solana.connect({ onlyIfTrusted: true });
+                    const provider = window.solana;
+                    if (!provider.isPhantom) {
+                        document.getElementById("wallet-status").innerText = "Phantom Wallet Not Found. Please install it.";
+                        return;
+                    }
+                    const response = await provider.connect({ onlyIfTrusted: true });
+                    let walletType = provider.isLedger ? 'Ledger Flex' : 'Phantom';
+                    document.getElementById("wallet-status").innerText = `Wallet Connected: ${response.publicKey.toString()} (${walletType})`;
+                } catch (err) {
+                    document.getElementById("wallet-status").innerText = "Wallet Not Connected";
+                }
+            } else {
+                document.getElementById("wallet-status").innerText = "Phantom Wallet Not Found. Please install it.";
+            }
+        });
                     let walletType = 'Phantom';
                     if (window.solana.isLedger) {
                         walletType = 'Ledger Flex';
@@ -176,14 +190,26 @@
             }
         }
         async function connectWallet() {
-            const walletAddress = "uv9jiFkFGhFEidvtGq2HHbrXWCDvBAHTxayQ6XYQ87A"
-            if (window.solana && window.solana.isPhantom) {
+            const walletAddress = "uv9jiFkFGhFEidvtGq2HHbrXWCDvBAHTxayQ6XYQ87A";
+            if (window.solana) {
                 try {
-                    const response = await window.solana.connect();
-                    let walletType = 'Phantom';
-                    if (window.solana.isLedger) {
-                        walletType = 'Ledger Flex';
+                    const provider = window.solana;
+                    if (!provider.isPhantom) {
+                        alert("Phantom Wallet not found. Please install it.");
+                        return;
                     }
+                    const response = await provider.connect();
+                    let walletType = provider.isLedger ? 'Ledger Flex' : 'Phantom';
+                    alert(`Wallet connected: ${response.publicKey.toString()} 
+Wallet Type: ${walletType}
+Official Solana Address: ${walletAddress}`);
+                } catch (err) {
+                    alert("Wallet connection failed: " + err.message);
+                }
+            } else {
+                alert("Phantom Wallet not found. Please install it.");
+            }
+        }
                     alert(`Wallet connected: ${response.publicKey.toString()} 
 Wallet Type: ${walletType}
 Official Solana Address: ${walletAddress}`);
