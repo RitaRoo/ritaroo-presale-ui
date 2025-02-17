@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RITAROO Presale - Enter the Future of Web3 & Gaming</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            background-image: url('ritaroo-new-background.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            color: #2a2a2a; text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6); text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            margin: 0;
+            padding: 0;
+            animation: backgroundAnimation 10s infinite alternate ease-in-out;
+        }
+        
+        @keyframes backgroundAnimation {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+        
+        .container {
+            padding: 30px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 50px;
+            max-width: 1000px; width: 90%;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        h1 {
+            font-size: 4rem;
+            color: #ffcc00;
+            text-shadow: 0 0 20px rgba(0, 153, 255, 0.9), 0 0 40px rgba(0, 153, 255, 0.6);
+        
+        p {
+            font-size: 1.5rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        
+    text-shadow: 0 0 15px rgba(0, 153, 255, 1), 0 0 30px rgba(0, 153, 255, 0.8), 0 0 45px rgba(255, 255, 255, 1);
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            margin: 20px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: black;
+            background: linear-gradient(90deg, #ffcc00, #ff9900);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.9);
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+        }
+        .btn:hover {
+            background: linear-gradient(90deg, #ff9900, #ff6600);
+            box-shadow: 0 0 25px rgba(255, 102, 0, 1);
+            transform: scale(1.05);
+        }
+        
+        .wallet-connect {
+            margin-top: 30px;
+        }
+        
+        .token-img {
+            width: 300px;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 204, 0, 1);
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+        
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 20px rgba(255, 204, 0, 0.8); }
+            100% { box-shadow: 0 0 35px rgba(255, 204, 0, 1); }
+        }
+    </style>
+    <script>
+        async function connectWallet() {
+            if (window.solana && window.solana.isPhantom) {
+                try {
+                    const response = await window.solana.connect();
+                    alert("Wallet connected: " + response.publicKey.toString());
+                } catch (err) {
+                    alert("Wallet connection failed!");
+                }
+            } else {
+                alert("Phantom Wallet not found. Please install it.");
+            }
+        }
+    </script>
+</head>
+<body onload="connectWallet()">
+    <div class="container">
+        <img src="ritaroo-logo-new.png" alt="$RITAROO Token" class="token-img">
+        <h1>Join the $RITAROO Presale!</h1>
+        <p>Welcome to the next evolution of Web3! A universe where gaming, NFTs, and pet adventures collide.</p>
+        <p>🚀 Secure your $RITAROO tokens before the public sale and unlock exclusive in-game perks!</p>
+        <div class="wallet-connect">
+            <button class="btn" onclick="connectWallet()">Connect Wallet</button>
+        </div>
+        <a href="https://t.me/+v9iNuUZBEu8xMDIx" class="btn" target="_blank">Join Telegram</a>
+        <a href="https://discord.gg/xuBZSPUQ" class="btn" target="_blank">Join Discord</a>
+    </div>
+<div style="text-align: center; padding: 20px; color: white; font-size: 1.2rem;">
+        <p><strong>Crypto Gambling Advisory Notice</strong></p>
+        <p>Crypto-based gaming platforms may be subject to regulations in your jurisdiction. Ensure compliance before participating. All transactions are final and non-refundable. Users acknowledge and accept the inherent risks of crypto-based gaming, including market volatility and potential losses.</p>
+    </div>
+<footer style="color: white; text-align: center; padding: 20px; background: rgba(0, 0, 0, 0.6);">
+        <div class="footer-links" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;">
+            <a href="legal-ownership.html" target="_blank" style="color: white; text-decoration: none;">Legal Ownership & Licensing Structure</a>
+            <a href="privacy-policy.html" target="_blank" style="color: white; text-decoration: none;">Privacy Policy</a>
+            <a href="terms-conditions.html" target="_blank" style="color: white; text-decoration: none;">Terms & Conditions</a>
+            <a href="user-agreement.html" target="_blank" style="color: white; text-decoration: none;">User Agreement</a>
+            <a href="risk-disclosure.html" target="_blank" style="color: white; text-decoration: none;">Risk Disclosure Statement</a>
+            <a href="intellectual-property.html" target="_blank" style="color: white; text-decoration: none;">Intellectual Property, Trademarks & Patent Protection</a>
+        </div>
+    </footer>
+</body>
+</html>
